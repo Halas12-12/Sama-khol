@@ -4,80 +4,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pour Sama Khol ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            height: 100vh;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            text-align: center;
+            font-family: 'Poppins', sans-serif;
             color: #333;
         }
 
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 420px;
+            padding: 20px;
+        }
+
         .card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 450px;
-            width: 90%;
-            transition: all 0.5s ease;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        .photo-wrapper {
+            width: 100%;
+            height: 250px;
+            border-radius: 18px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffe6ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
         h1 {
-            color: #e63946;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
+            font-family: 'Dancing Script', cursive;
+            color: #d81b60;
+            margin-bottom: 15px;
+            font-size: 2.3rem;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.05rem;
             line-height: 1.6;
-            margin-bottom: 30px;
-            color: #4a4a4a;
+            margin-bottom: 25px;
+            color: #555;
+            min-height: 60px;
         }
 
         button {
-            background-color: #e63946;
+            background: linear-gradient(45deg, #ff4081, #d81b60);
             color: white;
             border: none;
-            padding: 12px 28px;
+            padding: 14px 32px;
             font-size: 1rem;
-            border-radius: 25px;
+            font-weight: 600;
+            border-radius: 30px;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 18px rgba(216, 27, 96, 0.4);
+            outline: none;
         }
 
         button:hover {
-            background-color: #d62828;
-            transform: scale(1.05);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(216, 27, 96, 0.5);
         }
 
-        .heart {
+        button:active {
+            transform: translateY(1px);
+        }
+
+        .floating-element {
             position: absolute;
-            color: #e63946;
-            font-size: 20px;
-            animation: float 4s ease-in-out infinite;
+            pointer-events: none;
+            animation: floatUp 4s linear forwards;
             opacity: 0;
         }
 
-        @keyframes float {
+        @keyframes floatUp {
             0% {
-                transform: translateY(0) rotate(0deg);
+                transform: translateY(0) scale(0.8) rotate(0deg);
                 opacity: 1;
             }
             100% {
-                transform: translateY(-100vh) rotate(360deg);
+                transform: translateY(-100vh) scale(1.2) rotate(360deg);
                 opacity: 0;
             }
         }
@@ -85,29 +119,43 @@
 </head>
 <body>
 
-    <div class="card" id="card">
-        <h1 id="title">Un petit message pour toi...</h1>
-        <p id="text">Prends une grande inspiration et clique ci-dessous pour commencer ce petit voyage.</p>
-        <button id="next-btn" onclick="nextStep()">Découvrir</button>
+    <div class="container">
+        <div class="card" id="card">
+            <div class="photo-wrapper" id="photo-box">
+                <img id="image" src="image0.jpeg" alt="Sama Khol">
+            </div>
+            <h1 id="title">Un petit mot pour toi...</h1>
+            <p id="text">Prends une grande inspiration et clique ci-dessous pour commencer ce petit voyage.</p>
+            <button id="next-btn" onclick="nextStep()">Découvrir ✨</button>
+        </div>
     </div>
 
     <script>
         const steps = [
             {
                 title: "Pour Sama Khol ❤️",
-                text: "J'ai voulu te préparer un petit quelque chose de spécial, juste pour te faire sourire."
+                text: "J'ai voulu te préparer une petite surprise, juste pour illuminer ta journée et te faire sourire.",
+                image: "image1.jpeg"
             },
             {
-                title: "Chaque moment...",
-                text: "Chaque instant partagé à tes côtés est précieux et compte énormément pour moi."
+                title: "Nos précieux moments...",
+                text: "Chaque instant passé à tes côtés est gravé dans mon cœur comme un souvenir inestimable.",
+                image: "image2.jpeg"
             },
             {
-                title: "Regarde autour de toi...",
-                text: "Ce petit parcours s'arrête ici, mais le message, lui, reste le même chaque jour..."
+                title: "Une évidence au quotidien...",
+                text: "Tu apportes une douceur, une joie et une lumière uniques dans ma vie.",
+                image: "image3.jpeg"
             },
             {
-                title: "Je t'aime ❤️",
+                title: "Toujours à tes côtés...",
+                text: "Regarde le chemin parcouru et tout ce qu'il nous reste encore à construire ensemble.",
+                image: "image4.jpeg"
+            },
+            {
+                title: "Je t'aime Sama Khol ❤️",
                 text: "Simplement, profondément et sincèrement. Tu es tout pour moi.",
+                image: "image5.jpeg",
                 isFinal: true
             }
         ];
@@ -117,35 +165,49 @@
         function nextStep() {
             if (currentStep < steps.length) {
                 const step = steps[currentStep];
-                document.getElementById('title').innerText = step.title;
-                document.getElementById('text').innerText = step.text;
+                const card = document.getElementById('card');
+                
+                card.style.opacity = '0';
+                card.style.transform = 'scale(0.95)';
 
-                if (step.isFinal) {
-                    document.getElementById('next-btn').style.display = 'none';
-                    startHearts();
-                } else {
-                    document.getElementById('next-btn').innerText = "Continuer";
-                }
+                setTimeout(() => {
+                    document.getElementById('title').innerText = step.title;
+                    document.getElementById('text').innerText = step.text;
+                    document.getElementById('image').src = step.image;
+
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+
+                    if (step.isFinal) {
+                        document.getElementById('next-btn').style.display = 'none';
+                        startFloatingEffects();
+                    } else {
+                        document.getElementById('next-btn').innerText = "Continuer ✨";
+                    }
+                }, 300);
 
                 currentStep++;
             }
         }
 
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-            document.body.appendChild(heart);
+        function createFloatingElement() {
+            const icons = ['❤️', '💖', '✨', '💕', '🌸'];
+            const el = document.createElement('div');
+            el.classList.add('floating-element');
+            el.innerText = icons[Math.floor(Math.random() * icons.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.top = '100vh';
+            el.style.fontSize = (Math.random() * 15 + 20) + 'px';
+            el.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(el);
 
             setTimeout(() => {
-                heart.remove();
+                el.remove();
             }, 4000);
         }
 
-        function startHearts() {
-            setInterval(createHeart, 300);
+        function startFloatingEffects() {
+            setInterval(createFloatingElement, 250);
         }
     </script>
 </body>
