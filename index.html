@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pour Sama Khol ❤️</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            text-align: center;
+            color: #333;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 90%;
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            color: #e63946;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #4a4a4a;
+        }
+
+        button {
+            background-color: #e63946;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        button:hover {
+            background-color: #d62828;
+            transform: scale(1.05);
+        }
+
+        .heart {
+            position: absolute;
+            color: #e63946;
+            font-size: 20px;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card" id="card">
+        <h1 id="title">Un petit message pour toi...</h1>
+        <p id="text">Prends une grande inspiration et clique ci-dessous pour commencer ce petit voyage.</p>
+        <button id="next-btn" onclick="nextStep()">Découvrir</button>
+    </div>
+
+    <script>
+        const steps = [
+            {
+                title: "Pour Sama Khol ❤️",
+                text: "J'ai voulu te préparer un petit quelque chose de spécial, juste pour te faire sourire."
+            },
+            {
+                title: "Chaque moment...",
+                text: "Chaque instant partagé à tes côtés est précieux et compte énormément pour moi."
+            },
+            {
+                title: "Regarde autour de toi...",
+                text: "Ce petit parcours s'arrête ici, mais le message, lui, reste le même chaque jour..."
+            },
+            {
+                title: "Je t'aime ❤️",
+                text: "Simplement, profondément et sincèrement. Tu es tout pour moi.",
+                isFinal: true
+            }
+        ];
+
+        let currentStep = 0;
+
+        function nextStep() {
+            if (currentStep < steps.length) {
+                const step = steps[currentStep];
+                document.getElementById('title').innerText = step.title;
+                document.getElementById('text').innerText = step.text;
+
+                if (step.isFinal) {
+                    document.getElementById('next-btn').style.display = 'none';
+                    startHearts();
+                } else {
+                    document.getElementById('next-btn').innerText = "Continuer";
+                }
+
+                currentStep++;
+            }
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 4000);
+        }
+
+        function startHearts() {
+            setInterval(createHeart, 300);
+        }
+    </script>
+</body>
+</html>
