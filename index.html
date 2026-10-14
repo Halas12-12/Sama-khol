@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pour Sama Khol ❤️</title>
+    <title>Pour Christian & Tina ❤️</title>
     <style>
         * {
             box-sizing: border-box;
@@ -13,7 +13,7 @@
         }
 
         body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -34,7 +34,7 @@
         }
 
         h1 {
-            color: #e63946;
+            color: #2a6f97;
             margin-bottom: 20px;
             font-size: 1.8rem;
         }
@@ -47,7 +47,7 @@
         }
 
         button {
-            background-color: #e63946;
+            background-color: #2a6f97;
             color: white;
             border: none;
             padding: 12px 28px;
@@ -55,17 +55,17 @@
             border-radius: 25px;
             cursor: pointer;
             transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+            box-shadow: 0 4px 15px rgba(42, 111, 151, 0.4);
         }
 
         button:hover {
-            background-color: #d62828;
+            background-color: #014f86;
             transform: scale(1.05);
         }
 
         .heart {
             position: absolute;
-            color: #e63946;
+            color: #2a6f97;
             font-size: 20px;
             animation: float 4s ease-in-out infinite;
             opacity: 0;
@@ -86,28 +86,28 @@
 <body>
 
     <div class="card" id="card">
-        <h1 id="title">Un petit message pour toi...</h1>
-        <p id="text">Prends une grande inspiration et clique ci-dessous pour commencer ce petit voyage.</p>
+        <h1 id="title">Un petit mot pour vous deux...</h1>
+        <p id="text">Prenez une seconde et cliquez ci-dessous pour découvrir ça.</p>
         <button id="next-btn" onclick="nextStep()">Découvrir</button>
     </div>
 
     <script>
         const steps = [
             {
-                title: "Pour Sama Khol ❤️",
-                text: "J'ai voulu te préparer un petit quelque chose de spécial, juste pour te faire sourire."
+                title: "Christian & Tina 🌟",
+                text: "J'ai voulu vous préparer ce petit clin d'œil rien que pour vous."
             },
             {
-                title: "Chaque moment...",
-                text: "Chaque instant partagé à tes côtés est précieux et compte énormément pour moi."
+                title: "Une belle équipe",
+                text: "Vous voir avancer ensemble est une vraie source d'inspiration."
             },
             {
-                title: "Regarde autour de toi...",
-                text: "Ce petit parcours s'arrête ici, mais le message, lui, reste le même chaque jour..."
+                title: "Un petit rappel...",
+                text: "Gardez toujours cette belle complicité qui vous unit au quotidien."
             },
             {
-                title: "Je t'aime ❤️",
-                text: "Simplement, profondément et sincèrement. Tu es tout pour moi.",
+                title: "Plein de bonnes choses ! ✨",
+                text: "Restez comme vous êtes, vous êtes au top.",
                 isFinal: true
             }
         ];
@@ -134,7 +134,7 @@
         function createHeart() {
             const heart = document.createElement('div');
             heart.classList.add('heart');
-            heart.innerHTML = '❤️';
+            heart.innerHTML = '✨';
             heart.style.left = Math.random() * 100 + 'vw';
             heart.style.animationDuration = Math.random() * 2 + 3 + 's';
             document.body.appendChild(heart);
